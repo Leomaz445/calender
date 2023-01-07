@@ -9,12 +9,12 @@ import java.io.IOException;
 
 import static com.example.calender.constants.ApplicationConstants.*;
 
-public class CalenderApplication extends Application {
+public class CalendarApplication extends Application {
 
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CalenderApplication.class.getResource("calender-app.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CalendarApplication.class.getResource("calendar-app.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), SCENE_WIDTH, SCENE_HEIGHT);
         stage.setTitle(CALENDER_APPLICATION);
         stage.setScene(scene);

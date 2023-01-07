@@ -17,7 +17,7 @@ import static com.example.calender.constants.MessagesConstants.*;
 import static com.example.calender.enums.InformationCode.PICK_A_MONTH;
 import static com.example.calender.enums.InformationCode.*;
 
-public class CalenderImpl {
+public class CalendarImpl {
     private int dayOfTheMonth;
     private int month;
     private int year;
@@ -25,7 +25,7 @@ public class CalenderImpl {
     private final InformationMessagesAlert informationMessagesAlert;
     private final ConfirmationMessagesAlert confirmationMessagesAlert;
 
-    public CalenderImpl() {
+    public CalendarImpl() {
         this.dayOfTheMonth = 0;
         this.month = 0;
         this.year = 0;
@@ -42,6 +42,14 @@ public class CalenderImpl {
         }
         informationMessagesAlert.getAlert(CANT_SAVE_OR_LOAD_CHOOSE_DAY, CANT_SAVE_OR_LOAD_CHOOSE_DAY_MESSAGE);
         return false;
+    }
+
+    public void initDayOfTheMonth() {
+        this.dayOfTheMonth = 0;
+    }
+
+    public int getDayOfTheMonth() {
+        return this.dayOfTheMonth;
     }
 
     public void setDayOfTheMonth(Button dayButton) {
@@ -88,6 +96,10 @@ public class CalenderImpl {
     public void addValueToHashMap(LocalDate selectedDate, String message) {
         data.put(selectedDate, message);
         informationMessagesAlert.getAlert(SAVED, SAVED_MESSAGE);
+    }
+
+    public boolean haveSavedSomething(LocalDate localDate) {
+        return data.containsKey(localDate) && !(data.get(localDate).isEmpty());
     }
 
     public Optional<LocalDate> getSelectedDate() {
